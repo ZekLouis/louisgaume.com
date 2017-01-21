@@ -10,6 +10,10 @@
         </head>
 
         <body>
+            <section class="section section-3">
+                <span class="loader loader-circles"></span>
+            </section>
+
             <div class="container">
                 <div class="page-header text-center" id="home">
                     <img id="me" src="images/photo_cv_2_web.png">
@@ -274,5 +278,12 @@
                     <p>Louis Gaume 2016</p>
                 </footer> 
             </div>
+            <script>
+                $(".container").hide();
+                $(document).ready(function() {
+                    $(".section").fadeOut(300);
+                    setTimeout(function(){$(".container").fadeIn(300)},300);
+                });
+            </script>
         </body>
     </html>
