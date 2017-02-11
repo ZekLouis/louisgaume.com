@@ -1,0 +1,26 @@
+<?php
+				$monfichier = fopen('projects/rpiwatch/code/bin/config.cfg', 'r+');
+		        if($monfichier == NULL){
+		   	    	echo "Problème d'ouverture du fichier";
+		        }
+		        $i = 0;
+		        while ($i < 5){
+		        	$temp = fgets($monfichier);
+		            $i++;
+		        }
+		        if($temp == "enmarche = False\n"){
+		                echo '<button class="ctrl" type="button" name="on" onclick="launchDetect()" value="Démarrer">Démarrer la détection</button>	
+				<button class="ctrl" type="button" name="off" onclick="alert(\'La détection est déjà arrêtée\');"  value="Arrêter">Arrêter la détection</button>
+				<button class="ctrl" type="button" name="photo" onclick="takePhoto()" value="Photo">Prendre une photo</button>
+				<button class="ctrl" type="button" name="video" onclick="takeVideo()" value="Vidéo">Prendre une vidéo</button>
+				Durée de la vidéo <input id="duree" type="number" min="1" max="60" name="duree" value="5"> sec.';
+		        }
+		        else{
+		                echo '<button class="ctrl" type="button" name="on" onclick="alert(\'La détection est déjà démarrée\')" value="Démarrer">Démarrer la détection</button>
+		        <button class="ctrl" type="button" name="off" onclick="stopDetect()"  value="Arrêter">Arrêter la détection</button>
+				<button class="ctrl" type="button" name="photo" onclick="alert(\'Vous devez commencer par arrêter la détection\')" value="Photo">Prendre une photo</button>
+				<button class="ctrl" type="button" name="video" onclick="alert(\'Vous devez commencer par arrêter la détection\')" value="Vidéo">Prendre une vidéo</button>
+				Durée de la vidéo <input id="duree" type="number" min="1" max="60" name="duree" value="5"> sec.';
+		        }
+		        fclose($monfichier);
+?>
